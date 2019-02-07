@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block page_title %}ガウディーズ{% endblock %}
+{% block extra_css %}<link rel="stylesheet" type="text/css" href="{% static 'top/top.css' %}">{% endblock %}
+<body>
+    {% block extra_contents %}
+    <div class="main">
+        <div class="video_area">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/LRhAONgR8aQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1oqNqZgT4hc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br><br>
+        </div>
+	<div class="news-area">
+        <div class="fixed_posts post">
+        {% if fixed_post %}
+            <h2><a href="/posts/#{{ fixed_post.pk }}">{{ fixed_post.title }}</a></h2>
+            {% if fixed_post.image %}
+                <img src="{{ fixed_post.image.url }}" class="rounded img-fluid post-image" style = "max-height: 200px;">
+            {% endif %}
+            <p>{{ fixed_post.summary }}</p>
+
+        {% endif %}
+        </div>
+        <div class="last_3_posts">
+            {% for post in last_3_posts %}
+                <p><a href="/posts/#{{ post.pk }}">{{ post.title }} ：{{ post.published }}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+    {% endblock %}
+</body>

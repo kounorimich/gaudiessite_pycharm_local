@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block page_title %}プロフィール{% endblock %}
+{% block extra_css %}<link rel="stylesheet" type="text/css" href="{% static 'top/top.css' %}">{% endblock %}
+<body>
+    {% block extra_contents %}
+    <div class="main">
+        <br>
+        <img src="{% static 'profile_photo_resized.jpg' %}" sizes="">
+	    <p>東京で活動中のバンド。現在はコーノ、加藤の2名体制。</p>
+    </div>
+    {% endblock %}
+</body>

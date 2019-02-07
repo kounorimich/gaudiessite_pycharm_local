@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block page_title %}ライブ{% endblock %}
+{% block extra_css %}<link rel="stylesheet" type="text/css" href="{% static 'lives_style.css' %}">{% endblock %}
+<body>
+    {% block extra_contents %}
+    <div class="main">
+    {% for live in lives %}
+        <div class="live">
+            <br>
+            <h1>{{ live.date }}</h1>
+            <br>
+	        {% if live.url %}
+	            <img src='{{ live.image.url }}' class='live-image img-fluid' style = 'max-height: 100px' alt="image">
+	        {% endif %}
+	        {% if live.venue_url %}
+		        <p>会場：<a href='{{ live.venue_url }}'>{{ live.venue }}</a></p>
+	        {% else %}
+		        <p>会場：{{ live.venue }}</p>
+            {% endif %}
+	        <br>
+	        {% if live.title %}
+		        <p>{{ live.title }}</p>
+	        {% endif %}
+	        {% if live.detail %}
+                <p>{{ live.detail }}</p>
+	        {% endif %}
+            <br><br>
+        </div>
+    {% endfor %}
+    </div>
+    {% endblock %}
+</body>

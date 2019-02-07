@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}Posts{% endblock %}
+{% block extra_css %}<link rel="stylesheet" type="text/css" href="{% static 'posts_style.css' %}">{% endblock %}
+{% block extra_contents %}
+    <div class="post_area">
+    {% for post in posts.all %}
+        <br><br>
+        <div class="post">
+        <h1 id="{{ post.pk }}">{{ post.title }}</h1>
+        <p>{{ post.published }}</p>
+        <br>
+        {% if post.image %}}
+            <img src="{{ post.image.url }}" class='post-image' alt="image">
+            <br>
+        {% endif %}
+        <p>{{ post.body }}</p>
+        <br><br>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

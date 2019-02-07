@@ -1,0 +1,13 @@
+.post-image{
+    width:200px;
+    height:200px;
+}
+
+.post{
+    border-bottom: #505050 solid;
+}
+
+.post_area{
+    magin-right: 50px;
+    margin-left: 50px;
+}
