@@ -19,24 +19,23 @@ class TopView(TemplateView):
         context['fixed_post'] = fixed_post  # topに固定して表示するpost
         # 固定ポストと最新ポストが異なる場合のみトップに表示
         # if not Post.objects.order_by('-published')[0].id == context['fixed_post'].id:
-        context['last_post'] = Post.objects.order_by('-published')[0]
 
         # Post.objects.order_by('pk')[last_3_post_list]
         # if Post.objects.get(pk=FIXED_POSTS_PK) in last_3_post_list:
-        last_3_post_list = [0, 1, 2, 3]
-        last_3_post = []
+        last_3_post_index_list = [0, 1, 2, 3]
+        last_3_posts = []
         # if FIXED_POSTS_PK in last_3_post_list:
         #     last_3_post_list.remove(FIXED_POSTS_PK)
         # else:
         #     last_3_post_list.remove(3)
-        for v in last_3_post_list:
-            if Post.objects.order_by("-pk")[v] is fixed_post:
-               continue
-            last_3_post.append(Post.objects.order_by("-pk")[v])
-            if len(last_3_post_list) > 3:
-                last_3_post_list.pop(3)
+        for v in last_3_post_index_list:
+            if Post.objects.order_by("-pk")[v] == fixed_post:
+                continue
+            last_3_posts.append(Post.objects.order_by("-pk")[v])
+            if len(last_3_posts) > 3:
+                last_3_posts.pop(3)
 
-        context['last_3_posts'] = last_3_post
+        context['last_3_posts'] = last_3_posts
 
         return context
 
