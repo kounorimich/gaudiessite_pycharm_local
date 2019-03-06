@@ -4,12 +4,21 @@
 {% load static %}
 {% block page_title %}プロフィール{% endblock %}
 {% block extra_css %}<link rel="stylesheet" type="text/css" href="{% static 'top/top.css' %}">{% endblock %}
-<body>
+
     {% block extra_contents %}
     <div class="main">
         <br>
         <img src="{% static 'profile_photo_resized.jpg' %}" sizes="">
-	    <p>東京で活動中のバンド。現在はコーノ、加藤の2名体制。</p>
+        <p>撮影 加藤貴文</p>
+        <br>
+        <p>東京で活動中のバンド。現在はコーノ、加藤の2名体制。</p>
     </div>
     {% endblock %}
-</body>
+
+{% block active-menu %}<a class="nav-item nav-link" href="{% url 'top:top' %}">Home <span class="sr-only">(current)</span></a>
+		<a class="nav-item nav-link" href="{% url 'lives_index' %}">Live</a>
+                <a class="nav-item nav-link disabled" href="#">Music</a>
+                <a class="nav-item nav-link" href="{% url 'posts:index' %}">Posts</a>
+                <a class="nav-item nav-link active" href="{% url 'profile' %}">Profile</a>
+{% endblock %}
+

@@ -4,10 +4,9 @@
 {% load static %}
 {% block page_title %}ライブ{% endblock %}
 {% block extra_css %}<link rel="stylesheet" type="text/css" href="{% static 'lives_style.css' %}">{% endblock %}
-<body>
     {% block extra_contents %}
     <div class="main">
-    {% for live in lives %}
+    {% for live in future_lives %}
         <div class="live">
             <br>
             <h1>{{ live.date }}</h1>
@@ -25,11 +24,26 @@
 		        <p>{{ live.title }}</p>
 	        {% endif %}
 	        {% if live.detail %}
-                <p>{{ live.detail }}</p>
+                <p>{{ live.detail | linebreaksbr}}</p>
 	        {% endif %}
             <br><br>
         </div>
     {% endfor %}
+    {% if not future_lives %}
+        <h1>現在、予定しているライブはありません</h1>
+    {% endif %}
+        <div class="past_lives">
+            <h3>過去のライブ（2019年2月以降）</h3>
+            {% for live in past_lives_ordered %}
+            <p>{{ live.date }}@{{ live.venue }}</p>
+            {% endfor %}
+        </div>
     </div>
     {% endblock %}
-</body>
+
+{% block active-menu %}<a class="nav-item nav-link" href="{% url 'top:top' %}">Home <span class="sr-only">(current)</span></a>
+		<a class="nav-item nav-link active" href="{% url 'lives_index' %}">Live</a>
+                <a class="nav-item nav-link disabled" href="#">Music</a>
+                <a class="nav-item nav-link" href="{% url 'posts:index' %}">Posts</a>
+                <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+{% endblock %}

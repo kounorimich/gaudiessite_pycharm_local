@@ -4,10 +4,33 @@ body{
 }
 .navbar{
     height:120px;
+
     }
+.icon{
+    height:100px;
+    padding: 0px 20px;
+}
+
+.icons{
+    margin-right: 100px;
+    float: right;
+}
 
 .navbar-brand{
     margin-left: 10px;
     }
+.main {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+.footer{
+    position:absolute;
+    width:100%;text-align:center;
+    display: block;
 
+}
+
+.copyright{
+    color: #777777;
+}
 

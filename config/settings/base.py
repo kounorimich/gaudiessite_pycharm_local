@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'top.apps.TopConfig',
     'lives.apps.LivesConfig',
+    "markdownx",
 ]
 
 MIDDLEWARE = [

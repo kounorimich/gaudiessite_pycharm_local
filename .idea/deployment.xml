@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" promptOnRemoteOverwrite="CHECK_CONTENT" serverName="dgtl_ocean_gaudiessite_norimichi">
+  <component name="PublishConfigData" autoUpload="Always" promptOnRemoteOverwrite="CHECK_CONTENT" serverName="norimichi@178.128.30.115:22">
     <serverData>
       <paths name="dgtl_ocean_gaudiessite_norimichi">
         <serverdata>
@@ -12,7 +12,7 @@
       <paths name="norimichi@178.128.30.115:22">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/tmp/pycharm_project_512" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
